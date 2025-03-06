@@ -20,6 +20,7 @@ resource "aws_instance" "example_1" {
     Name = "worker"
   }
   security_groups = [aws_security_group.example_sg.name]
+  user_data       = file("./sample.sh")
 }
 resource "aws_instance" "example_2" {
   ami           = "ami-0f2ce9ce760bd7133"
@@ -29,6 +30,7 @@ resource "aws_instance" "example_2" {
     Name = "worker"
   }
   security_groups = [aws_security_group.example_sg.name]
+  user_data       = file("./sample.sh")
 }
 resource "aws_security_group" "example_sg" {
   tags = {
